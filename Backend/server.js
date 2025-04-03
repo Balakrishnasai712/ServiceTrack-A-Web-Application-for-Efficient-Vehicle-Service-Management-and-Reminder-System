@@ -7,10 +7,16 @@ import serviceRoutes from './routes/serviceRoutes.js';
 import reminderRoutes from './routes/reminderRoutes.js';
 import './utils/cronJobs.js';  // Import the cron job file
 import Vehicle from './models/vehicle.js';
+import cors from 'cors';
+
 dotenv.config();
 
 const app = express();
 app.use(express.json());
+
+// Enable CORS 
+app.use(cors());
+
 
 // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded({ extended: true }));

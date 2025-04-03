@@ -41,6 +41,22 @@ export const getVehicles = async (req, res) => {
     }
 };
 
+// @desc    Get a vehicle by ID
+// @route   GET /api/vehicles/:id
+// @access  Protected
+export const getVehicleById = async (req, res) => {
+    try {
+        const vehicle = await Vehicle.findById(req.params.id);
+        if (!vehicle) {
+            return res.status(404).json({ message: 'Vehicle not found.' });
+        }
+        res.status(200).json(vehicle);
+    } catch (error) {
+        res.status(500).json({ message: 'Failed to retrieve vehicle.' });
+    }
+}
+
+
 // @desc    Update a vehicle
 // @route   PUT /api/vehicles/:id
 // @access  Protected

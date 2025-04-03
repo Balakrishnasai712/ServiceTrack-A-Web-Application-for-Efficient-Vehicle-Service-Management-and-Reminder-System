@@ -1,0 +1,122 @@
+.vehicles-container {
+    background-color: #1E293B;
+    color: #E0F2FE;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    max-width: 1000px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.vehicles-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.vehicles-header h2 {
+    font-size: 28px;
+    border-bottom: 2px solid #3B82F6;
+    padding-bottom: 5px;
+}
+
+.add-btn {
+    background-color: #3B82F6;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.add-btn:hover {
+    background-color: #2563EB;
+}
+
+/* Card Design */
+.vehicle-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.vehicle-card {
+    background-color: #334155;
+    border: 2px solid #3B82F6;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.vehicle-card:hover {
+    transform: translateY(-3px);
+}
+
+.vehicle-card h3 {
+    color: #3B82F6;
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.vehicle-card p {
+    margin: 5px 0;
+    color: #E0F2FE;
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+button {
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+    background-color: #38BDF8;
+    color: #1E293B;
+}
+
+.edit-btn:hover {
+    background-color: #0EA5E9;
+    color: #fff;
+}
+
+.history-btn {
+    background-color: #22C55E;
+    color: #1E293B;
+}
+
+.history-btn:hover {
+    background-color: #16A34A;
+    color: #fff;
+}
+
+.delete-btn {
+    background-color: #EF4444;
+    color: #fff;
+}
+
+.delete-btn:hover {
+    background-color: #DC2626;
+}
+
+.error {
+    color: #F87171;
+    background-color: #B91C1C;
+    padding: 8px 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}

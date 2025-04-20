@@ -64,6 +64,10 @@ const Vehicles = () => {
                             <Link to={`/services/${vehicle._id}`}>
                                 <button className="history-btn">Service History</button>
                             </Link>
+                            <Link to={`/add-service/${vehicle._id}`}>
+                                <button className="add-service-btn">Add Service</button>
+                            </Link>
+
                             <button
                                 className="delete-btn"
                                 onClick={() => handleDelete(vehicle._id)}

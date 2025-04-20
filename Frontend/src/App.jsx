@@ -49,7 +49,7 @@ function App() {
                     }
                   />
                   <Route 
-                    path="/services/:id"
+                    path="/add-service/:id"
                     element={
                       <ProtectedRoute>
                         <AddService />

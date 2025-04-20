@@ -1,17 +1,25 @@
 import Service from '../models/service.js';
 import Vehicle from '../models/vehicle.js';
 
-// @desc    Add a new service
-// @route   POST /api/services
+// @desc    Add a new service for a specific vehicle
+// @route   POST /api/services/:vehicleId
 // @access  Protected
 export const addService = async (req, res) => {
-    const { vehicleId, serviceType, serviceDate, cost, notes } = req.body;
+    const { serviceType, serviceDate, cost, notes } = req.body;
+    const { vehicleId } = req.params; // Extract vehicleId from URL parameters
 
-    if (!vehicleId || !serviceType || !serviceDate) {
-        return res.status(400).json({ message: 'All required fields must be provided.' });
+    if (!serviceType || !serviceDate) {
+        return res.status(400).json({ message: 'Service type and service date are required.' });
     }
-
+    
     try {
+        // Check if the vehicle exists
+        const vehicle = await Vehicle.findById(vehicleId);
+        if (!vehicle) {
+            return res.status(404).json({ message: 'Vehicle not found.' });
+        }
+
+        // Create the service
         const service = await Service.create({
             vehicleId,
             serviceType,
@@ -20,11 +28,12 @@ export const addService = async (req, res) => {
             notes
         });
 
-        // Auto-update lastServiceDate in Vehicle model
+        // Auto-update lastServiceDate in the Vehicle model
         await Vehicle.findByIdAndUpdate(vehicleId, { lastServiceDate: serviceDate });
 
         res.status(201).json(service);
     } catch (error) {
+        console.error('Error adding service:', error); // Log the error for debugging
         res.status(500).json({ message: 'Failed to add service.' });
     }
 };

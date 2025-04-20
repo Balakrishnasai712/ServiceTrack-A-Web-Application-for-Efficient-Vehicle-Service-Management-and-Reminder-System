@@ -18,7 +18,7 @@ const AddService = () => {
         e.preventDefault();
         try {
             const token = localStorage.getItem('token');
-            await axios.post('http://localhost:5001/api/services', {
+            await axios.post(`http://localhost:5001/api/services/${vehicleId}`, {
                 vehicleId,
                 serviceDate,
                 description,
